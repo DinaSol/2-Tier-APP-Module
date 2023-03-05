@@ -6,13 +6,13 @@ resource "aws_security_group" "sg-2" {
 
   vpc_id = data.aws_vpc.vpc.id
    
-#  allow https, http inbound traffic
+#  allow RDS traffic
   ingress {
     description      = "RDS"
     from_port        = 3306
     to_port          = 3306
     protocol         = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["10.0.0.0/16"]
 
   }
   
